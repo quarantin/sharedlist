@@ -1,0 +1,75 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-10 12:28+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: sharedlist/templates/sharedlist/base.html:8
+msgid "Shared Lists"
+msgstr "Listes partagées"
+
+#: sharedlist/templates/sharedlist/base.html:11
+msgid "Website in"
+msgstr "Site web en"
+
+#: sharedlist/templates/sharedlist/base.html:15
+msgid "Visit home page"
+msgstr "Visiter la page d'accueil"
+
+#: sharedlist/templates/sharedlist/base.html:16
+msgid "Home"
+msgstr "Accueil"
+
+#: sharedlist/templates/sharedlist/base.html:19
+msgid "Visit Administration section"
+msgstr "Visiter la section administrative"
+
+#: sharedlist/templates/sharedlist/base.html:20
+msgid "Administration"
+msgstr "Administration"
+
+#: sharedlist/templates/sharedlist/index.html:9
+msgid "No shared list configured yet."
+msgstr "Aucune liste partagée configurée pour l'instant."
+
+#: sharedlist/templates/sharedlist/index.html:9
+msgid "You can visit"
+msgstr "Vous pouvez visiter"
+
+#: sharedlist/templates/sharedlist/index.html:9
+msgid "this"
+msgstr "cette"
+
+#: sharedlist/templates/sharedlist/index.html:9
+msgid "page to create a new shared list."
+msgstr "page pour créer une nouvelle liste partagée."
+
+#: sharedlist/templates/sharedlist/index.html:19
+msgid "Shared list"
+msgstr "Liste partagée"
+
+#: sharedlist/templates/sharedlist/index.html:20
+msgid "Go"
+msgstr ""
+
+#: siteconfig/settings.py:139
+msgid "English"
+msgstr "Anglais"
+
+#: siteconfig/settings.py:140
+msgid "French"
+msgstr "Français"

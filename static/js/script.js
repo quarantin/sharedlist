@@ -1,0 +1,1 @@
+../../sharedlist/static/js/script.js

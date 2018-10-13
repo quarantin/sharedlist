@@ -1,0 +1,20 @@
+<form id="list-form" method="post">{% with form=item_form %}
+
+	{% csrf_token %}
+
+	{{ form.non_field_errors }}
+
+	<div class="row item-row">
+		{{ form.name.errors }}
+		<div class="col-2 item-label">
+			{{ form.name.label_tag }}
+		</div>
+		<div class="col-10 item-field">
+			{{ form.name }}
+		</div>
+	</div>
+
+	<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	<button type="submit" class="btn btn-primary">Save changes</button>
+
+</form>{% endwith %}

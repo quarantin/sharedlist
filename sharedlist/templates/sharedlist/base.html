@@ -1,0 +1,29 @@
+{% load i18n %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>{% block header %}{% endblock %}</head>
+<body>
+	<nav class="navbar navbar-light bg-light">
+		<span class="navbar-brand mb-0 h1">{% trans "Shared Lists" %}</span>
+		<span class="navbar-brand mb-0 h1">
+			{% get_available_languages as languages %}{% for lang_code, lang_name in languages %}{% with 'img/flag/'|add:lang_code|add:'.png' as image_flag %}
+			<a href="/{{ lang_code }}{{ request.path|slice:"3:"}}" class="btn" data-toggle="tooltip" title="{% trans "Website in" %} {{ lang_name|lower }}">
+				<img src="{% static image_flag %}" width="25" height="15">
+			</a>{% endwith %}
+			{% endfor %}
+			<a href="/{{ request.LANGUAGE_CODE }}/" class="btn btn-primary" data-toggle="tooltip" title="{% trans "Visit home page" %}">
+				{% trans "Home" %}
+			</a>
+		{% if request.user.is_superuser %}
+			<a href="/{{ request.LANGUAGE_CODE }}/admin/" class="btn btn-primary" data-toggle="tooltip" title="{% trans "Visit Administration section" %}">
+				{% trans "Administration" %}
+			</a>
+		{% endif %}
+		</span>
+	</nav>
+	<br>
+	<div class="container">{% block content %}{% endblock %}
+	</div>
+</body>
+</html>

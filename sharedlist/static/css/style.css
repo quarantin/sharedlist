@@ -1,0 +1,38 @@
+.content {
+	width: 70%;
+}
+
+.list-item p {
+	display: inline;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+.list-name {
+	color: darkgray;
+}
+
+.modal-dialog {
+	width: 80%;
+	max-width: 80% !important;
+}
+
+.modal-dialog .form-control {
+	width: 80%;
+}
+
+#select-list {
+	margin-right: 10px;
+};
+
+#item-form div div label {
+	float: left;
+	text-align: right;
+}
+
+#item-form div div input,
+#item-form div div select {
+	float: right;
+	width: 100%;
+	margin-bottom: 10px;
+}

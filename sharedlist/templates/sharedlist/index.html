@@ -1,0 +1,35 @@
+{% extends "sharedlist/base.html" %}
+{% load i18n %}
+{% block header %}{% include "sharedlist/head.html" %}{% endblock %}
+{% block content %}
+	<div class="content">{% if lists|length < 1 %}
+		<div class="col">
+			<span>
+				<p>{% trans "No shared list configured yet." %}{% if request.user.is_superuser %}<br>{% trans "You can visit" %} <a href="/{{ request.LANGUAGE_CODE }}/admin/sharedlist/sharedlistitem/add/">{% trans "this" %}</a> {% trans "page to create a new shared list item." %}{% endif %}</p>
+			</span>
+		</div>{% else %}
+
+		<div class="row">
+			<select id="select-list" class="col-10 form-control">
+				<option value="">Select a list</option>{% for list in lists %}
+				<option value="{{ list.slug }}"{% if list.slug in request.path %} selected{% endif %}>{{ list.name }}</option>{% endfor %}
+			</select>
+			<button type="button" class="col btn btn-primary" data-toggle="modal" data-target="#new-task">New Task</button>
+		</div>
+
+		{% include 'sharedlist/modal-form-item.html' %}
+
+		<br>{% for item in items %}
+
+		<div class="row">
+			<label for="item-{{ item.slug}}" class="form-control list-item">
+				<p class="float-left">
+					<input id="item-{{ item.slug }}" type="checkbox" data-list-slug="{% if item.sharedlist %}{{ item.sharedlist.slug }}{% else %}all-lists{% endif %}" data-item-slug="{{ item.slug }}"{% if item.done %} checked{% endif %}/>
+					{{ item.name }}
+				</p>
+				<p class="float-right list-name">{% if item.sharedlist %}
+					{{ item.sharedlist }}{% endif %}
+				</p>
+			<label/>
+		</div>{% endfor %}{% endif %}
+	</div>{% endblock %}

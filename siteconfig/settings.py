@@ -10,7 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
+from django.utils.translation import gettext_lazy as _
+
 import os
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -41,6 +44,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+	'django.middleware.locale.LocaleMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -74,11 +78,23 @@ WSGI_APPLICATION = 'siteconfig.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
+DATABASE_MYSQL = {
+	'ENGINE': 'django.db.backends.mysql',
+	'NAME': 'sharedlist',
+	'USER': 'sharedlist',
+	'PASSWORD': 'sharedlist',
+	'HOST': 'localhost',
+	'OPTIONS': {
+		'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+	},
+}
+
+
+# Database
+# https://docs.djangoproject.com/en/2.0/ref/settings/#databases
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    'default': DATABASE_MYSQL,
 }
 
 
@@ -114,8 +130,27 @@ USE_L10N = True
 
 USE_TZ = True
 
+LANG_EN = 'en'
+LANG_FR = 'fr'
+
+LANGUAGE_CODE = LANG_EN
+
+LANGUAGES = [
+    (LANG_EN, _('English')),
+    (LANG_FR, _('French')),
+]
+
+prefix_default_language=True
+
+
+# Path to store locales for internationalization
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'locale'),
+]
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
